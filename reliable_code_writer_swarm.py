@@ -26,7 +26,7 @@ from autogen_agentchat.conditions import (
 
 async def main():
     # Create the agents
-    os.environ["OPENAI_API_KEY"] = "sk-fb600a333ea14bfc97c83cbc3ac27417"
+    os.environ["OPENAI_API_KEY"] = ""
     api_key = os.getenv("OPENAI_API_KEY")
     model_client = OpenAIChatCompletionClient(
         api_key=api_key,
