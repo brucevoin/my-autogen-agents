@@ -1,9 +1,5 @@
 from dataclasses import dataclass
-import json
-import re
-import os
 import asyncio
-import tempfile
 from typing import List
 from typing_extensions import Annotated
 from autogen_core.tools import FunctionTool
@@ -14,26 +10,17 @@ from autogen_core import (
     SingleThreadedAgentRuntime,
     default_subscription,
     message_handler,
-    ClosureAgent,
-    ClosureContext,
-    DefaultSubscription,
 )
-from autogen_core.code_executor import CodeBlock, CodeExecutor
 from autogen_core.models import (
     AssistantMessage,
     ChatCompletionClient,
     LLMMessage,
     SystemMessage,
     UserMessage,
-    FunctionExecutionResult,
-    FunctionExecutionResultMessage,
 )
-from autogen_core import CancellationToken, FunctionCall
-from autogen_ext.code_executors.local import LocalCommandLineCodeExecutor
+from autogen_core import CancellationToken
 from autogen_ext.models.openai import OpenAIChatCompletionClient
 
-from autogen_agentchat.agents import CodeExecutorAgent
-from autogen_agentchat.messages import AgentMessage, ChatMessage, TextMessage
 
 from execute_tool_call import execute_tool_call
 from execute_code_tool import execute_code

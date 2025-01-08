@@ -1,16 +1,11 @@
 from asyncio import subprocess
-from typing import AsyncGenerator, List, Sequence
 import os
 import subprocess
-import psutil
 import asyncio
-import platform
-import socket
 
 from autogen_agentchat.ui import Console
 from autogen_agentchat.agents import CodeExecutorAgent, AssistantAgent, UserProxyAgent
-from autogen_agentchat.base import Response
-from autogen_agentchat.messages import AgentMessage, ChatMessage, TextMessage
+from autogen_agentchat.messages import TextMessage
 from autogen_core import CancellationToken
 from autogen_ext.code_executors.local import LocalCommandLineCodeExecutor
 from autogen_ext.models.openai import OpenAIChatCompletionClient
@@ -19,8 +14,6 @@ from autogen_core.tools import FunctionTool
 from autogen_agentchat.teams import Swarm
 from autogen_agentchat.conditions import (
     HandoffTermination,
-    MaxMessageTermination,
-    TextMentionTermination,
 )
 
 
